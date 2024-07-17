@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NavBar from './Components/NavBar.js'
+import News from './Components/News.js'
+import { Route,Routes } from 'react-router-dom';
+import F404 from './Components/404.js';
+import { useState } from 'react';
 
-function App() {
+export function App() {
+  const [category,setCategory] = useState("general");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <NavBar setCategory={setCategory}/>
+      <Routes>
+      <Route path="/" element={<News category={category}/>} />
+      <Route path="*" element={<F404/>} />
+      </Routes>
+    </>
+  )
 }
 
-export default App;
