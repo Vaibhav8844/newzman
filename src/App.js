@@ -11,8 +11,8 @@ export function App() {
     <>
       <NavBar setCategory={setCategory}/>
       <Routes>
-      <Route path="/" element={<News category={category}/>} />
-      <Route path="*" element={<F404/>} />
+      <Route path="*" element={<News category={category}/>} />
+      {/* <Route path="*" element={<F404/>} /> */}
       </Routes>
     </>
   )
